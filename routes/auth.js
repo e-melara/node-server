@@ -5,6 +5,6 @@ const AuthValidator = require("../app/validator/auth");
 const AuthController = require("../app/controllers/auth");
 
 module.exports = Router()
- .get("/", AuthValidator.login, AuthController.login)
- .post("/renew", AuthJWT, AuthController.revalidToken)
+ .post("/", AuthValidator.login, AuthController.login)
+ .get("/renew", AuthJWT, AuthController.revalidToken)
  .post("/new", AuthValidator.createUser, AuthController.createUser);

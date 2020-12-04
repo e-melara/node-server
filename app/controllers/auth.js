@@ -22,7 +22,7 @@ module.exports.login = async (req = request, res = response) => {
     message: "Password incorrecto",
    });
   }
-  const token = generate(user.id, user.name);
+  const token = await generate(user.id, user.name);
 
   return res.json({
    ok: true,
@@ -40,8 +40,9 @@ module.exports.login = async (req = request, res = response) => {
 module.exports.createUser = async (req = request, res = response) => {
  const { email, password } = req.body;
  try {
-  let user = User.findOne({ email: email });
+  let user = await User.findOne({ email: email });
   if (user) {
+   console.log(user);
    return res.status(400).json({
     ok: false,
     message: `El correo: ${email} ya existe en nuestra base de datos`,
@@ -52,7 +53,7 @@ module.exports.createUser = async (req = request, res = response) => {
   const salt = genSaltSync();
   user.password = hashSync(password, salt);
   await user.save();
-  const token = generate(user.id, user.name);
+  const token = await generate(user.id, user.name);
 
   return res.status(201).json({
    ok: true,

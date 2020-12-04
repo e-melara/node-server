@@ -2,7 +2,8 @@ const { response, request } = require("express");
 const { valid } = require("../../config/jwt");
 
 module.exports = (req = request, res = response, next) => {
- const token = req.header("x-token");
+ const token = req.headers.authorization;
+
  if (!token) {
   return res.status(401).json({
    ok: false,

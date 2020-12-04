@@ -10,10 +10,11 @@ const validator = {
  valid: require("../middlewares/valid"),
 };
 
-module.exports.createUser = () => {
- return [validator.name, validator.email, validator.password, validator.valid];
-};
+module.exports.createUser = [
+ validator.name,
+ validator.email,
+ validator.password,
+ validator.valid,
+];
 
-module.exports.login = () => {
- return [validator.email, validator.password, validator.valid];
-};
+module.exports.login = [validator.email, validator.password, validator.valid];

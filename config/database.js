@@ -7,7 +7,6 @@ module.exports.database = async () => {
    useUnifiedTopology: true,
    useCreateIndex: true,
   });
-  console.log("DB online");
  } catch (error) {
   console.log(error);
   throw new Error("error al iniciar la conexion con la DB");
