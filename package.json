@@ -1,9 +1,11 @@
 {
   "name": "node-server",
   "scripts": {
-    "start": "nodemon index.js"
+    "run": "nodemon index.js",
+    "start": "node index.js"
   },
-"engines": {
+  "main": "index.js",
+  "engines": {
     "node": "12.x"
   },
   "version": "1.0.0",
