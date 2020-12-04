@@ -23,6 +23,7 @@ module.exports.login = async (req = request, res = response) => {
    });
   }
   const token = await generate(user.id, user.name);
+  console.log(token, user);
 
   return res.json({
    ok: true,
