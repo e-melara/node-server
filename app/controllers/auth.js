@@ -31,9 +31,9 @@ module.exports.login = async (req = request, res = response) => {
    token,
   });
  } catch (error) {
-  console.log(error);
   return res.status(500).json({
    message: "Ponte en contacto con el adminstrador",
+   error,
   });
  }
 };
@@ -62,9 +62,9 @@ module.exports.createUser = async (req = request, res = response) => {
    token,
   });
  } catch (error) {
-  console.log(error);
   return res.status(500).json({
    message: "Ponte en contacto con el adminstrador",
+   error,
   });
  }
 };
