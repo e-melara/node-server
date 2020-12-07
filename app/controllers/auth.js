@@ -76,5 +76,7 @@ module.exports.revalidToken = async (req = request, res = response) => {
  return res.json({
   ok: true,
   token,
+  uid: id,
+  name,
  });
 };
